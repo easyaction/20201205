@@ -1,17 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400,600,700,800');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700;900");
 
 body {
   margin: 0;
-  font-family: 'Noto Serif KR', -apple-system, BlinkMacSystemFont;
+  font-family: "Noto Serif KR", -apple-system, BlinkMacSystemFont;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body, #root {
-	height: 100%;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html,
+body,
+#root {
+  height: 100%;
 }
