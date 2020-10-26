@@ -1,8 +1,14 @@
 import { Component } from "react";
 import "./Title.css";
 import { ReactComponent as XIcon } from "../../img/ic_main_x.svg";
-
 class Title extends Component {
+  constructor(props) {
+    super(props);
+   
+    this.state = {
+      dday: this.getDDay(),
+    };
+  }
   render() {
     return (
       <div className="main">
@@ -16,9 +22,9 @@ class Title extends Component {
               </h1>
             </div>
             <div className="d-day">
-              <p>D-NN</p>
+              <p>D-{this.state.dday}</p>
             </div>
-		  </div>
+          </div>
           <div className="footer">
             <div className="schedule">
               <p>
@@ -28,16 +34,22 @@ class Title extends Component {
                 <br />
                 보성성당
               </p>
-			</div>
-			<div className="name">
-			<p>김세영</p>
-			<XIcon />
-			<p>황선아</p>
-		  </div>
+            </div>
+            <div className="name">
+              <p>김세영</p>
+              <XIcon />
+              <p>황선아</p>
+            </div>
           </div>
         </div>
       </div>
     );
+  }
+  getDDay(){
+	var then = new Date(2020, 11, 5, 12, 0, 0, 0);
+    var now = new Date();
+    var diff = then.getTime() - now.getTime();
+    return Math.floor(diff / (1000 * 60 * 60 * 24));
   }
 }
 
