@@ -2,6 +2,7 @@ import "./App.css";
 import { Component } from "react";
 import { Helmet } from "react-helmet";
 import Title from "./component/title/Title";
+import Contents from "./component/contents/Contents";
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
           ></meta>
         </Helmet>
         <Title />
+        <Contents />
       </div>
     );
   }

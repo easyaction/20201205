@@ -2,9 +2,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  background: transparent url("../../img/img_bg.png") 0% 0% no-repeat padding-box;
-  background-position: center;
-  background-color: #EAE8E7;
+  background: #EAE8E7 url("../../img/img_bg@2x.png") no-repeat center;
   background-size: cover;
 	
   opacity: 1;

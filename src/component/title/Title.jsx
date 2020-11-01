@@ -1,6 +1,6 @@
 import { Component } from "react";
 import "./Title.css";
-import { ReactComponent as XIcon } from "../../img/ic_main_x.svg";
+import { ReactComponent as IconX } from "../../img/ic_main_x.svg";
 class Title extends Component {
   constructor(props) {
     super(props);
@@ -37,7 +37,7 @@ class Title extends Component {
             </div>
             <div className="name">
               <p>김세영</p>
-              <XIcon />
+              <IconX />
               <p>황선아</p>
             </div>
           </div>
