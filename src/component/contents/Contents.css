@@ -197,15 +197,37 @@
   margin-top:80px;
   background: #301E1B 0% 0% no-repeat padding-box;
   opacity: 1;
+  padding-bottom: 60px;
 }
 
 .share > .container > .title {
   padding-top: 40px;
   color: #FFFFFF;
+  padding-bottom: 20px;
+}
+
+.share > .container > .title > p {
+  margin:0;
 }
 
 .share > .container > .icons {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background: #FFFFFF1A 0% 0% no-repeat padding-box;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+}
+
+.circle:nth-child(2){
+  margin-left: 40px;
 }

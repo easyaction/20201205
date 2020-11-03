@@ -76,8 +76,12 @@ class Contents extends Component {
               <p>소식 전하기</p>
             </div>
             <div className="icons">
-              <IconLink/>
-              <IconTalk/>
+              <div className="circle">
+                <IconLink/>
+              </div>
+              <div className="circle">
+                <IconTalk/>
+              </div>
             </div>
           </div>
         </div>
