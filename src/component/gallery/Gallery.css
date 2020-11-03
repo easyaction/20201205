@@ -1,0 +1,43 @@
+
+.gallery-detail > .head {
+  display: flex;
+  position: fixed;
+  top: 0;
+  /* width: 100% */
+  left: 0;
+  right: 0;
+  height: 114px;
+  background: white;
+  border-bottom: 1px solid #301E1B;
+}
+
+.gallery-detail > .head > .title {
+  padding-top: 60px;
+  justify-content: center;
+  text-align: center;
+  font: normal normal bold 21px/30px Noto Serif KR;
+  letter-spacing: 0px;
+  color: #301E1B;
+  opacity: 1;
+}
+
+.gallery-detail > .head > .title > p {
+  margin : 0;
+}
+
+.gallery-detail > .head > .icon-delete {
+  display: inline;
+  position: absolute;
+  top:44px;
+  right:16px;
+}
+
+.gallery-detail > .body {
+  padding-top: 114px;
+  margin-bottom: 80px;
+}
+
+.gallery-detail > .body > img {
+  padding-top:40px;
+  width: 100%;
+}
