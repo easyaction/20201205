@@ -27,9 +27,7 @@ class Contents extends Component {
                 className="name">  세영</span>
                 <br />
                 <div className="christian-name">
-                       <span>암브로시오</span>
-                      <span>효주 아녜스</span>
-               <span>세영 알렉시오</span>
+                  <span>암브로시오</span><span>효주 아녜스</span><span>세영 알렉시오</span>
                 </div>
                 <br />
                 <span className="name">황 훈</span> ∙ <span className="name">김선경</span>의 장녀<span
