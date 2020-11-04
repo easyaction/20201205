@@ -10,31 +10,32 @@ import Image6 from '../../img/gallery/img_03_gallery_03_detail_06@2x.png';
 import Image7 from '../../img/gallery/img_03_gallery_03_detail_07@2x.png';
 import Image8 from '../../img/gallery/img_03_gallery_03_detail_08@2x.png';
 
-
 class Gallery extends Component {
   render() {
-  return (
-    <div className="gallery-detail">
-      <div className="head">
-        <div className="title">
-          <p>사진첩</p>
+    const {isOpen, close} = this.props;
+    return (<>
+      {isOpen ? (
+        <div className="gallery-detail">
+        <div className="head">
+          <div className="title">
+            <p>사진첩</p>
+          </div>
+          <div className="icon-delete" onClick={close}>
+            <IconDelete onClick={close}/>
+          </div>
         </div>
-        <div className="icon-delete">
-          <IconDelete/>
+        <div className="body">
+          <img src={Image1} alt="" />
+          <img src={Image2} alt="" />
+          <img src={Image3} alt="" />
+          <img src={Image4} alt="" />
+          <img src={Image5} alt="" />
+          <img src={Image6} alt="" />
+          <img src={Image7} alt="" />
+          <img src={Image8} alt="" />
         </div>
-      </div>
-      <div className="body">
-        <img src={Image1} alt="" />
-        <img src={Image2} alt="" />
-        <img src={Image3} alt="" />
-        <img src={Image4} alt="" />
-        <img src={Image5} alt="" />
-        <img src={Image6} alt="" />
-        <img src={Image7} alt="" />
-        <img src={Image8} alt="" />
-      </div>
-    </div>
-  )
+      </div>) : null}
+    </>);
   }
 }
 
