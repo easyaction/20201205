@@ -113,6 +113,7 @@
 
 .gallery > .container >  .images > img {
   width: 74%;
+  height: 100%;
   padding-right: 2%;
 }
 
