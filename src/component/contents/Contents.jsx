@@ -2,14 +2,33 @@ import {Component} from "react";
 import "./Contents.css";
 import ImageInvitation from '../../img/img_01_invitaion@2x.png';
 import ImageGallery1 from '../../img/img_02_gallery_01@2x.png';
-import ImageMap from '../../img/img_03_map_01@2x.png';
 import {ReactComponent as IconLink} from "../../img/ic_link.svg";
-import {ReactComponent as IconTalk} from "../../img/ic_talk.svg";
+import KakaoShareButton from '../share/Share';
+import { CopyToClipboard } from 'react-copy-to-clipboard'
+import {ToastsContainer, ToastsContainerPosition, ToastsStore} from 'react-toasts';
 
 class Contents extends Component {
+  constructor() {
+    super();
+  }
+  componentDidMount() {
+    window.Kakao.init("62b2362e3323dc058e7baa14ea4f2f63")
+    console.log(window.Kakao.isInitialized())
+    let marker = new window.naver.maps.LatLng(34.770503, 127.084419);
+    var mapOptions = {
+      center: marker,
+      zoom: 17,
+    };
+
+    var map = new window.naver.maps.Map('map', mapOptions);
+    var mark = new window.naver.maps.Marker({
+      map: map,
+      position: marker
+    });
+  }
+
   render() {
     const {open} = this.props;
-
     return (
       <div>
         <div className="greeting">
@@ -18,7 +37,7 @@ class Contents extends Component {
               <p>인삿말</p>
             </div>
             <div className="body">
-              <p>오랜 연인이었던 저희가 <br />부부가 되어 새로운 가정을 이룹니다.<br />저희의 소중한 시작을 함께 축하해 주세요!</p>
+              <p>오랜 시간 사랑을 키워온 저희가<br/>하느님의 축복 속에 혼인 예식을 올립니다.<br/>저희의 소중한 시작에 많은 축하 부탁드립니다.</p>
             </div>
             <div className="image_invitation"><img src={ImageInvitation} alt="" /></div>
             <div className="name_section">
@@ -57,10 +76,7 @@ class Contents extends Component {
             <div className="body">
               <p>2020년 12월 5일 오후 12시<br />전라남도 보성군 천주교 보성성당</p>
             </div>
-            <div className="map_image">
-              <a href="http://naver.me/5G41UXwA">
-                <img src={ImageMap} alt='' />
-              </a>
+            <div className="map_image" id="map">
             </div>
             <div className="desc">
               <p>혼인성사 후 피로연을 준비했습니다.<br />부디 참석하시어 즐거운 시간 보내시기 바랍니다.</p>
@@ -84,14 +100,19 @@ class Contents extends Component {
               <p>소식 전하기</p>
             </div>
             <div className="icons">
-              <div className="circle">
+              <div className="circle" onClick={() => ToastsStore.info("링크 복사 완료👌")}>
+                <ToastsContainer store={ToastsStore} position={ToastsContainerPosition.BOTTOM_CENTER}/>
+                <CopyToClipboard text={window.location.href} >
                 <IconLink />
+                </CopyToClipboard>
               </div>
               <div className="circle">
-                <IconTalk />
+                <KakaoShareButton/>
               </div>
             </div>
           </div>
+        </div>
+        <div>
         </div>
       </div>
     )
