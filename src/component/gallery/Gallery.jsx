@@ -12,16 +12,16 @@ import Image8 from '../../img/gallery/img_03_gallery_03_detail_08@2x.png';
 
 class Gallery extends Component {
   render() {
-    const {isOpen, close} = this.props;
+    const {isOpen, closeFunc, outModal} = this.props;
     return (<>
       {isOpen ? (
-        <div className="gallery-detail">
+        <div className={outModal ? "gallery-detail out" : "gallery-detail"} id="gallery">
         <div className="head">
           <div className="title">
             <p>사진첩</p>
           </div>
-          <div className="icon-delete" onClick={close}>
-            <IconDelete onClick={close}/>
+          <div className="icon-delete" onClick={closeFunc}>
+            <IconDelete onClick={closeFunc}/>
           </div>
         </div>
         <div className="body">

@@ -1,5 +1,5 @@
 import "./App.css";
-import React, {Component} from "react";
+import React, {Component, useRef, useEffect} from "react";
 import Title from "./component/title/Title";
 import Contents from "./component/contents/Contents";
 import Gallery from './component/gallery/Gallery';
@@ -8,26 +8,28 @@ import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'bo
 class App extends Component {
   constructor() {
     super();
-    this.state = {isModalOpen: false};
+    this.state = {isModalOpen: false, outModal:false, targetElement: null};
   }
 
   openModal = () => {
     this.setState({isModalOpen: true})
-    disableBodyScroll(this.targetElement);
-
+    disableBodyScroll(this.state.targetElement);
   }
 
   closeModal = () => {
-    this.setState({isModalOpen: false})
-    enableBodyScroll(this.targetElement);
+    this.setState({outModal: true}, () => {
+      setTimeout(() => {
+        this.setState({isModalOpen: false, outModal:false });
+      }, 500)});
+    enableBodyScroll(this.state.targetElement);
   }
-  targetElement = null;
 
   componentDidMount() {
     // 2. Get a target element that you want to persist scrolling for (such as a modal/lightbox/flyout/nav).
     // Specifically, the target element is the one we would like to allow scroll on (NOT a parent of that element).
     // This is also the element to apply the CSS '-webkit-overflow-scrolling: touch;' if desired.
-    this.targetElement = document.querySelector('.App');
+    let targetElement = document.querySelector('.gallery-detail');
+    this.setState({targetElement:targetElement})
   }
 
   componentWillUnmount() {
@@ -39,13 +41,13 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <div className="App">
         <div>
-            <Title />
+          <Gallery isOpen={this.state.isModalOpen} closeFunc={this.closeModal} outModal={this.state.outModal}/>
+          <Title />
             <Contents open={this.openModal} />
-          <Gallery isOpen={this.state.isModalOpen} close={this.closeModal} />
-
         </div>
       </div>
     );

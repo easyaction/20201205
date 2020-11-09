@@ -22,7 +22,7 @@ const KakaoShareButton = () => {
         content: {
           title: '💒부부의 탄생🎉',
           description: '🤵김세영💖👰황선아',
-          imageUrl: 'IMAGE_URL', // i.e. process.env.FETCH_URL + '/logo.png'
+          imageUrl: 'http://20201205.s3-website.ap-northeast-2.amazonaws.com/static/media/img_bg@2x.c12c1e0f.png', // i.e. process.env.FETCH_URL + '/logo.png'
           link: {
             mobileWebUrl: window.location.href,
             webUrl: window.location.href,

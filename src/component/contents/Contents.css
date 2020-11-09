@@ -177,7 +177,7 @@
 }
 
 .map_image {
-  padding-top: 16px;
+  margin-top: 16px;
   width: calc(100% + 32px);
   height: 53vw;
   margin-left: -16px;

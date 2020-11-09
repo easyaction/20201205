@@ -79,7 +79,7 @@ class Contents extends Component {
             <div className="map_image" id="map">
             </div>
             <div className="desc">
-              <p>혼인성사 후 피로연을 준비했습니다.<br />부디 참석하시어 즐거운 시간 보내시기 바랍니다.</p>
+              <p>혼인예식 후 피로연을 준비했습니다.<br />부디 참석하시어 즐거운 시간 보내시기 바랍니다.</p>
             </div>
           </div>
         </div>
