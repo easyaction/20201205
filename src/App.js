@@ -3,7 +3,6 @@ import React, {Component, useRef, useEffect} from "react";
 import Title from "./component/title/Title";
 import Contents from "./component/contents/Contents";
 import Gallery from './component/gallery/Gallery';
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 class App extends Component {
   constructor() {
@@ -12,16 +11,36 @@ class App extends Component {
   }
 
   openModal = () => {
-    this.setState({isModalOpen: true})
-    disableBodyScroll(this.state.targetElement);
+    this.setState({isModalOpen: true}, () => {
+      setTimeout(()=> {
+        const body = document.querySelector('.all');
+        this.setState({scrollPosition : window.pageYOffset});
+        body.style.overflow = 'hidden';
+        body.style.pointerEvents = 'none';
+        body.style.position = 'fixed';
+        body.style.top = `-${this.state.scrollPosition}px`;
+        body.style.left = '0';
+        body.style.right = '0';
+      }, 500)
+    })
+
   }
+
+
 
   closeModal = () => {
     this.setState({outModal: true}, () => {
       setTimeout(() => {
         this.setState({isModalOpen: false, outModal:false });
       }, 500)});
-    enableBodyScroll(this.state.targetElement);
+    const body = document.querySelector('.all');
+    body.style.removeProperty('overflow');
+    body.style.removeProperty('pointer-events');
+    body.style.removeProperty('position');
+    body.style.removeProperty('top');
+    body.style.removeProperty('left');
+    body.style.removeProperty('right');
+    window.scrollTo(0, this.state.scrollPosition);
   }
 
   componentDidMount() {
@@ -37,7 +56,6 @@ class App extends Component {
     // and we just want a kill-switch to undo all that.
     // OR useful for if the `hideTargetElement()` function got circumvented eg. visitor
     // clicks a link which takes him/her to a different page within the app.
-    clearAllBodyScrollLocks();
   }
 
   render() {
@@ -46,8 +64,10 @@ class App extends Component {
       <div className="App">
         <div>
           <Gallery isOpen={this.state.isModalOpen} closeFunc={this.closeModal} outModal={this.state.outModal}/>
-          <Title />
+          <div className="all">
+            <Title />
             <Contents open={this.openModal} />
+          </div>
         </div>
       </div>
     );

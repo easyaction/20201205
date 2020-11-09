@@ -15,7 +15,7 @@ class Gallery extends Component {
     const {isOpen, closeFunc, outModal} = this.props;
     return (<>
       {isOpen ? (
-        <div className={outModal ? "gallery-detail out" : "gallery-detail"} id="gallery">
+        <div className={outModal ? "gallery-detail out" : "gallery-detail"}>
         <div className="head">
           <div className="title">
             <p>사진첩</p>

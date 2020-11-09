@@ -30,7 +30,7 @@ class Contents extends Component {
   render() {
     const {open} = this.props;
     return (
-      <div>
+      <div className="contents">
         <div className="greeting">
           <div className="container">
             <div className="head">
