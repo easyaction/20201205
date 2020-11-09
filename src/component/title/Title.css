@@ -4,7 +4,8 @@
   height: 217vw;
   background: #EAE8E7 url("../../img/img_bg@2x.png") no-repeat center;
   background-size: cover;
-  max-width: 1024px;
+  max-width: 768px;
+  max-height: 1334px;
   opacity: 1;
   margin-left: auto;
   margin-right: auto;
