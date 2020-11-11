@@ -9,7 +9,7 @@
   bottom: 0;
   left: 0;
   background: #FFFFFF;
-  max-width: 768px;
+  max-width: 412px;
   margin-left: auto;
   margin-right: auto;
   animation: moveUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
